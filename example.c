@@ -1,37 +1,35 @@
-/*
- * A very simple example program which dumps out all
- * volume records to stdout. It illustrates the important
- * features of liblsreg.
- */
-
+#include <string.h>
 #include "lsreg.h"
 
-// This is the record we will reuse, since
-// we do not keep any records.
 static lsreg_rec_t record;
 
-// Record factory
-static lsreg_rec_t *rec_factory(void *d) {
-  // Simply return our statically allocated record
+static lsreg_rec_t *rec_factory(void *match_prefix) {
   return &record;
 }
 
-// Record handler
-static int rec_handler(lsreg_rec_t *rec, void *d) {
-  // Only print volume records
-  if(rec->type == kLSRegRecTypeVolume) {
-    // Use the built-in dump function to print
-    // the contents of rec to stdout.
-    lsreg_rec_dump(rec, stdout);
+static int rec_handler(lsreg_rec_t *rec, void *match_prefix) {
+  lsreg_bundle_t *bundle;
+  size_t pxlen;
+  
+  if(rec->type == kLSRegRecTypeBundle) {
+    bundle = (lsreg_bundle_t *)rec->rec;
+    pxlen = strlen((const char *)match_prefix);
+    if ( (pxlen <= strlen(bundle->identifier.name)) &&
+         (strncasecmp((const char *)match_prefix, bundle->identifier.name, pxlen) == 0)
+       )
+    {
+      puts(bundle->path);
+    }
   }
-  // If we return 1, iteration will end
+  
   return 0;
 }
 
-// Main program
 int main (int argc, const char * argv[]) {
-  // Start iteration
-  lsreg_iterate(rec_factory, rec_handler, NULL);
-  // Exit OK
+  if (argc < 2) {
+    fprintf(stderr, "usage: %s PREFIX\n", argv[0]);
+    return 1;
+  }
+  lsreg_iterate(rec_factory, rec_handler, (void *)argv[1]);
   return 0;
 }

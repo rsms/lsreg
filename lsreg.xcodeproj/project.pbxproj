@@ -68,7 +68,6 @@
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* lsreg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lsreg.c; sourceTree = "<group>"; };
 		3A51B35D0CEFC5DF00BE382A /* lsreg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsreg.h; sourceTree = "<group>"; };
-		3A51B4480CF078D400BE382A /* lsreg.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; path = lsreg.1; sourceTree = "<group>"; };
 		3A51B44D0CF0793F00BE382A /* liblsreg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblsreg.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A51B46E0CF07B6D00BE382A /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		3A51B6750CF0D14100BE382A /* example.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = example.c; sourceTree = "<group>"; };
@@ -107,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				08FB7795FE84155DC02AAC07 /* Source */,
-				C6859EA2029092E104C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
 			name = "bundle-db";
@@ -132,14 +130,6 @@
 				3A51B6810CF0D26F00BE382A /* example1 */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		C6859EA2029092E104C91782 /* Documentation */ = {
-			isa = PBXGroup;
-			children = (
-				3A51B4480CF078D400BE382A /* lsreg.1 */,
-			);
-			name = Documentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
