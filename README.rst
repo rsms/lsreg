@@ -42,7 +42,7 @@ This little program dumps the whole Launch Registry to stdout. Not very useful. 
 
   * **Record factory** – provides each iteration with a ``lsreg_rec_t`` structure. In our example above we run everything in sequence and can thus reuse a lsreg_rec_t allocated on the stack.
 
-  * **Record handlers** – called with an actual record. This is where your code does something (doh!).
+  * **Record handlers** – called with an actual record. This is where your code does something useful (doh!).
 
 * We call lsreg_iterate, starting iteration (the order in which records are walked is undefined).
 
