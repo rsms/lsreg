@@ -8,9 +8,9 @@ Usage
 
 The launch registry contains three different type of records:
 
-* **Bundles** – Applications, plugins, etc.
-* **Volumes** – Mounted and previously mounted disks.
-* **Handlers** – Mapping file types to applications handling them.
+* **Bundles** - Applications, plugins, etc.
+* **Volumes** - Mounted and previously mounted disks.
+* **Handlers** - Mapping file types to applications handling them.
 
 lsreg enables introspection of all three types.
 
@@ -40,9 +40,9 @@ This little program dumps the whole Launch Registry to stdout. Not very useful. 
 
 * We need to define two functions:
 
-  * **Record factory** – provides each iteration with a ``lsreg_rec_t`` structure. In our example above we run everything in sequence and can thus reuse a lsreg_rec_t allocated on the stack.
+  * **Record factory** - provides each iteration with a ``lsreg_rec_t`` structure. In our example above we run everything in sequence and can thus reuse a lsreg_rec_t allocated on the stack.
 
-  * **Record handlers** – called with an actual record. This is where your code does something useful (doh!).
+  * **Record handlers** - called with an actual record. This is where your code does something useful (doh!).
 
 * We call lsreg_iterate, starting iteration (the order in which records are walked is undefined).
 
